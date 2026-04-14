@@ -2,333 +2,501 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>王浩 · 产品经理简历</title>
 <style>
-@page { size: A4; margin: 0; }
-* { margin: 0; padding: 0; box-sizing: border-box; }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-html, body {
-  font-family: "PingFang SC", "Helvetica Neue", "Microsoft YaHei", Arial, sans-serif;
-  background: #fff;
-  color: #222;
-  width: 210mm;
-}
+  :root {
+    --navy: #1c2b4a;
+    --navy-light: #2d4270;
+    --accent: #3b6fd4;
+    --bg-left: #f0f3fa;
+    --border: #dde3ef;
+    --text: #2d3748;
+    --muted: #718096;
+    --tag-bg: #dde6f5;
+  }
 
-/* ══ 顶部 Banner ══ */
-.top-bar {
-  background: #1c2b4a;
-  padding: 18px 24px 15px 24px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-}
-.top-bar h1 {
-  font-size: 28pt;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: -0.5px;
-  line-height: 1;
-}
-.top-bar .role {
-  font-size: 10pt;
-  color: rgba(255,255,255,0.6);
-  font-weight: 400;
-  padding-bottom: 4px;
-}
+  html { font-size: 16px; }
 
-/* ══ 联系栏 ══ */
-.contact-bar {
-  background: #eef1f7;
-  padding: 7px 24px;
-  display: flex;
-  gap: 28px;
-  align-items: center;
-  border-bottom: 1px solid #dde3ef;
-}
-.contact-bar span {
-  font-size: 8pt;
-  color: #555;
-}
+  body {
+    font-family: "PingFang SC", "Helvetica Neue", "Microsoft YaHei", Arial, sans-serif;
+    background: #e8ecf4;
+    color: var(--text);
+    min-height: 100vh;
+    padding: 32px 16px;
+  }
 
-/* ══ 主体两栏 ══ */
-.body {
-  display: flex;
-  /* 撑满 A4 剩余高度 */
-  min-height: calc(297mm - 76px);
-}
+  /* ── 外层卡片容器 ── */
+  .card {
+    max-width: 960px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(28,43,74,0.13);
+  }
 
-/* ── 左栏 ── */
-.left {
-  width: 63mm;
-  background: #f4f6fb;
-  padding: 18px 14px 20px 18px;
-  border-right: 1px solid #dde3ef;
-  flex-shrink: 0;
-}
+  /* ══ 顶部 Header ══ */
+  .header {
+    background: var(--navy);
+    padding: 36px 40px 28px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
 
-/* ── 右栏 ── */
-.right {
-  flex: 1;
-  background: #fff;
-  padding: 18px 22px 20px 20px;
-}
+  /* 头像 */
+  .avatar {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3b6fd4 0%, #5a8dee 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+    border: 3px solid rgba(255,255,255,0.25);
+    overflow: hidden;
+    letter-spacing: -1px;
+  }
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
 
-/* ══ 章节标题 ══ */
-.sec-title {
-  font-size: 7pt;
-  font-weight: 700;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  color: #1c2b4a;
-  border-bottom: 1.5px solid #1c2b4a;
-  padding-bottom: 3px;
-  margin-bottom: 9px;
-  margin-top: 16px;
-}
-.sec-title:first-child { margin-top: 0; }
+  .header-info { flex: 1; }
+  .header-info h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 2px;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .header-info .role {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.65);
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
 
-/* ══ 左栏内容 ══ */
-.summary-text {
-  font-size: 8pt;
-  line-height: 1.7;
-  color: #444;
-}
+  /* 联系信息 */
+  .contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.8);
+  }
+  .contact-item .icon {
+    width: 18px;
+    height: 18px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    flex-shrink: 0;
+  }
 
-.skill-group { margin-bottom: 8px; }
-.skill-label {
-  font-size: 7.5pt;
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 4px;
-}
-.skill-tags { display: flex; flex-wrap: wrap; gap: 4px; }
-.tag {
-  background: #dde6f5;
-  color: #1c2b4a;
-  font-size: 7pt;
-  padding: 3px 8px;
-  border-radius: 3px;
-  font-weight: 500;
-}
+  /* ══ 主体两栏 ══ */
+  .body {
+    display: flex;
+    min-height: 600px;
+  }
 
-.growth-item {
-  margin-bottom: 9px;
-  font-size: 8pt;
-  color: #444;
-  line-height: 1.65;
-}
-.growth-co  { font-weight: 700; color: #1c2b4a; }
-.growth-sub { color: #888; font-size: 7.5pt; }
+  /* ── 左栏 ── */
+  .left {
+    width: 260px;
+    flex-shrink: 0;
+    background: var(--bg-left);
+    padding: 28px 20px;
+    border-right: 1px solid var(--border);
+  }
 
-.edu-school { font-size: 9pt; font-weight: 700; color: #1c2b4a; }
-.edu-major  { font-size: 8pt; color: #555; margin-top: 3px; }
-.edu-date   { font-size: 7.5pt; color: #888; margin-top: 2px; }
-.edu-badge  {
-  display: inline-block;
-  background: #1c2b4a; color: #fff;
-  font-size: 7pt; padding: 2px 7px;
-  border-radius: 3px; margin-top: 5px; font-weight: 600;
-}
+  /* ── 右栏 ── */
+  .right {
+    flex: 1;
+    padding: 28px 32px;
+    min-width: 0;
+  }
 
-/* ══ 右栏内容 ══ */
-.exp { margin-bottom: 14px; }
+  /* ══ 章节标题 ══ */
+  .sec-title {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--navy);
+    border-bottom: 2px solid var(--navy);
+    padding-bottom: 5px;
+    margin-bottom: 14px;
+    margin-top: 24px;
+  }
+  .sec-title:first-child { margin-top: 0; }
 
-.exp-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 2px;
-}
-.exp-company { font-size: 10pt; font-weight: 700; color: #1c2b4a; }
-.exp-perf    { font-size: 7.5pt; color: #888; font-weight: 400; margin-left: 5px; }
-.exp-date    { font-size: 8pt; color: #888; white-space: nowrap; flex-shrink: 0; }
-.exp-context {
-  font-size: 7.5pt; color: #999;
-  font-style: italic;
-  margin-bottom: 7px;
-  line-height: 1.55;
-}
+  /* ══ 左栏：简介 ══ */
+  .summary-text {
+    font-size: 0.82rem;
+    line-height: 1.8;
+    color: #4a5568;
+  }
 
-.sub-title {
-  font-size: 8.5pt; font-weight: 700;
-  color: #333;
-  margin-top: 8px; margin-bottom: 3px;
-}
+  /* ══ 左栏：技能 ══ */
+  .skill-group { margin-bottom: 12px; }
+  .skill-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tag {
+    background: var(--tag-bg);
+    color: var(--navy);
+    font-size: 0.72rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
 
-ul { list-style: none; padding: 0; }
-ul li {
-  font-size: 8pt; color: #444;
-  line-height: 1.6;
-  padding-left: 11px; position: relative;
-  margin-bottom: 2px;
-}
-ul li::before { content: "–"; position: absolute; left: 0; color: #bbb; }
+  /* ══ 左栏：成长轨迹 ══ */
+  .growth-item {
+    margin-bottom: 12px;
+    font-size: 0.8rem;
+    color: #4a5568;
+    line-height: 1.7;
+    padding-left: 12px;
+    border-left: 3px solid var(--accent);
+  }
+  .growth-co { font-weight: 700; color: var(--navy); display: block; }
+  .growth-arrow { color: var(--accent); font-size: 0.7rem; }
+  .growth-sub { color: var(--muted); font-size: 0.75rem; }
 
-.data-line {
-  font-size: 8pt; font-weight: 700;
-  color: #1c2b4a;
-  margin-top: 4px; padding-left: 11px;
-  line-height: 1.55;
-}
+  /* ══ 左栏：教育 ══ */
+  .edu-school { font-size: 0.95rem; font-weight: 700; color: var(--navy); }
+  .edu-major  { font-size: 0.8rem; color: #555; margin-top: 4px; }
+  .edu-date   { font-size: 0.75rem; color: var(--muted); margin-top: 3px; }
+  .edu-badge  {
+    display: inline-block;
+    background: var(--navy); color: #fff;
+    font-size: 0.7rem; padding: 3px 10px;
+    border-radius: 20px; margin-top: 8px; font-weight: 600;
+  }
 
-.exp-divider {
-  border: none;
-  border-top: 0.5px solid #e5e7eb;
-  margin: 12px 0;
-}
+  /* ══ 右栏：工作经历 ══ */
+  .exp { margin-bottom: 20px; }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+  }
+  .exp-company {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+  .exp-perf {
+    display: inline-block;
+    background: #e8f0fe;
+    color: var(--accent);
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .exp-date {
+    font-size: 0.78rem;
+    color: var(--muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding-top: 3px;
+  }
+  .exp-context {
+    font-size: 0.78rem;
+    color: #888;
+    font-style: italic;
+    margin-bottom: 10px;
+    line-height: 1.6;
+    padding: 6px 10px;
+    background: #f8f9fc;
+    border-left: 3px solid var(--border);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .sub-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #333;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .sub-title::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 14px;
+    background: var(--accent);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  ul { list-style: none; padding: 0; }
+  ul li {
+    font-size: 0.82rem;
+    color: #4a5568;
+    line-height: 1.7;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+  }
+  ul li::before {
+    content: "·";
+    position: absolute;
+    left: 3px;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .data-line {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-top: 6px;
+    padding: 5px 10px;
+    background: #eef3fd;
+    border-radius: 6px;
+    line-height: 1.6;
+  }
+  .data-line::before { content: "📊 "; }
+
+  .exp-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 18px 0;
+  }
+
+  /* ══ 响应式 ══ */
+  @media (max-width: 700px) {
+    body { padding: 0; }
+    .card { border-radius: 0; box-shadow: none; }
+    .header { padding: 24px 20px; flex-direction: column; align-items: flex-start; gap: 16px; }
+    .body { flex-direction: column; }
+    .left { width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
+    .right { padding: 20px; }
+    .exp-header { flex-direction: column; gap: 2px; }
+  }
+
+  @media (max-width: 480px) {
+    .header-info h1 { font-size: 1.6rem; }
+    .contacts { gap: 6px 14px; }
+  }
 </style>
 </head>
 <body>
 
-<!-- 顶部 Banner -->
-<div class="top-bar">
-  <h1>王浩</h1>
-  <div class="role">产品经理 · 5年大厂经验</div>
-</div>
+<div class="card">
 
-<!-- 联系栏 -->
-<div class="contact-bar">
-  <span>📱 18201386950</span>
-  <span>✉️ gaike25219@126.com</span>
-  <span>🏫 北京交通大学 · 软件工程</span>
-  <span>🏢 腾讯 → 阿里 → 美团</span>
-</div>
-
-<!-- 主体 -->
-<div class="body">
-
-  <!-- 左栏 -->
-  <div class="left">
-
-    <div class="sec-title">个人简介</div>
-    <div class="summary-text">
-      近5年腾讯/阿里/美团大厂产品经验，持续在复杂业务中承担更大责任。现主导美团门票营销产品，落地神券体系与营销会场基建0-1搭建，推动营销从人工运营向算法驱动演进。软件工程背景，技术理解力与跨团队协同能力突出，具备从0到1独立操盘复杂产品的完整经验。
-    </div>
-
-    <div class="sec-title">核心能力</div>
-    <div class="skill-group">
-      <div class="skill-label">产品能力</div>
-      <div class="skill-tags">
-        <span class="tag">0-1产品设计</span>
-        <span class="tag">需求分析</span>
-        <span class="tag">数据驱动</span>
-        <span class="tag">AB测试</span>
+  <!-- ══ Header ══ -->
+  <div class="header">
+    <div class="avatar" id="avatarEl">王浩</div>
+    <div class="header-info">
+      <h1>王浩</h1>
+      <div class="role">产品经理 · 5年大厂经验</div>
+      <div class="contacts">
+        <div class="contact-item">
+          <div class="icon">📱</div>
+          <span>18201386950</span>
+        </div>
+        <div class="contact-item">
+          <div class="icon">✉️</div>
+          <span>gaike25219@126.com</span>
+        </div>
+        <div class="contact-item">
+          <div class="icon">🏫</div>
+          <span>北京交通大学 · 软件工程</span>
+        </div>
+        <div class="contact-item">
+          <div class="icon">🏢</div>
+          <span>腾讯 → 阿里 → 美团</span>
+        </div>
       </div>
     </div>
-    <div class="skill-group">
-      <div class="skill-label">业务领域</div>
-      <div class="skill-tags">
-        <span class="tag">营销产品</span>
-        <span class="tag">直播产品</span>
-        <span class="tag">AI产品</span>
-        <span class="tag">SaaS系统</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-label">技术理解</div>
-      <div class="skill-tags">
-        <span class="tag">算法策略</span>
-        <span class="tag">Uplift建模</span>
-        <span class="tag">自动化流程</span>
-      </div>
-    </div>
-
-    <div class="sec-title">成长轨迹</div>
-    <div class="growth-item">
-      <span class="growth-co">腾讯电竞</span>　执行 → 独立负责人<br>
-      <span class="growth-sub">完成首次0到1产品经历</span>
-    </div>
-    <div class="growth-item">
-      <span class="growth-co">阿里淘宝</span>　独立 → 方向判断<br>
-      <span class="growth-sub">主导直播AI能力矩阵</span>
-    </div>
-    <div class="growth-item">
-      <span class="growth-co">美团酒旅</span>　创新 → 核心主导<br>
-      <span class="growth-sub">推动营销精细化转型</span>
-    </div>
-
-    <div class="sec-title">教育背景</div>
-    <div class="edu-school">北京交通大学</div>
-    <div class="edu-major">软件工程（本科）</div>
-    <div class="edu-date">2017.09 — 2021.07</div>
-    <div><span class="edu-badge">211 · 双一流</span></div>
-
   </div>
 
-  <!-- 右栏 -->
-  <div class="right">
+  <!-- ══ 主体 ══ -->
+  <div class="body">
 
-    <div class="sec-title" style="margin-top:0;">工作经历</div>
+    <!-- ── 左栏 ── -->
+    <div class="left">
 
-    <!-- 美团 -->
-    <div class="exp">
-      <div class="exp-header">
-        <span class="exp-company">美团 · 酒旅事业部 · 营销产品经理</span>
-        <span class="exp-date">2024.07 — 至今</span>
+      <div class="sec-title">个人简介</div>
+      <div class="summary-text">
+        近5年腾讯/阿里/美团大厂产品经验，持续在复杂业务中承担更大责任。现主导美团门票营销产品，落地神券体系与营销会场基建0-1搭建，推动营销从人工运营向算法驱动演进。软件工程背景，技术理解力与跨团队协同能力突出，具备从0到1独立操盘复杂产品的完整经验。
       </div>
-      <div class="exp-context">接手时景点营销能力几乎空白：补贴粗放、渠道分散、基建缺失。独立主导从0到1完成核心能力建设。</div>
 
-      <div class="sub-title">① 神券体系</div>
-      <ul>
-        <li>主导C端营销优惠体系0-1建设，聚焦大搜-货架-提单核心链路，数据下钻定位用券率瓶颈，搭建跨应用全链路发券矩阵，日均触达百万级用户</li>
-        <li>落地券后价全场景渗透，联合AI客服与风控团队优化投诉处理链路，实现客诉清零</li>
-      </ul>
-      <div class="data-line">上线半年：神券订单占大盘 20%+，增量ROI超 1.3，用券支付规模同比 +80%</div>
+      <div class="sec-title">核心能力</div>
+      <div class="skill-group">
+        <div class="skill-label">产品能力</div>
+        <div class="skill-tags">
+          <span class="tag">0-1产品设计</span>
+          <span class="tag">需求分析</span>
+          <span class="tag">数据驱动</span>
+          <span class="tag">AB测试</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-label">业务领域</div>
+        <div class="skill-tags">
+          <span class="tag">营销产品</span>
+          <span class="tag">直播产品</span>
+          <span class="tag">AI产品</span>
+          <span class="tag">SaaS系统</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-label">技术理解</div>
+        <div class="skill-tags">
+          <span class="tag">算法策略</span>
+          <span class="tag">Uplift建模</span>
+          <span class="tag">自动化流程</span>
+        </div>
+      </div>
 
-      <div class="sub-title">② 营销基建</div>
-      <ul>
-        <li>2个月内从0搭建核心搭建组件（货架/玩法/领券/导航/图文），支撑暑期大促日均20W+支付UV，完成大促页面全迁移</li>
-        <li>重构直播系统自动化流程，沉淀SOP知识库，规范上线流程，半年内实现零系统故障</li>
-        <li>现主导补贴精细化与算法化演进，推进Uplift建模与智能发券策略落地</li>
-      </ul>
+      <div class="sec-title">成长轨迹</div>
+      <div class="growth-item">
+        <span class="growth-co">腾讯电竞</span>
+        执行 <span class="growth-arrow">→</span> 独立负责人<br>
+        <span class="growth-sub">完成首次0到1产品经历</span>
+      </div>
+      <div class="growth-item">
+        <span class="growth-co">阿里淘宝</span>
+        独立 <span class="growth-arrow">→</span> 方向判断<br>
+        <span class="growth-sub">主导直播AI能力矩阵</span>
+      </div>
+      <div class="growth-item">
+        <span class="growth-co">美团酒旅</span>
+        创新 <span class="growth-arrow">→</span> 核心主导<br>
+        <span class="growth-sub">推动营销精细化转型</span>
+      </div>
+
+      <div class="sec-title">教育背景</div>
+      <div class="edu-school">北京交通大学</div>
+      <div class="edu-major">软件工程（本科）</div>
+      <div class="edu-date">2017.09 — 2021.07</div>
+      <div><span class="edu-badge">211 · 双一流</span></div>
+
     </div>
 
-    <hr class="exp-divider">
+    <!-- ── 右栏 ── -->
+    <div class="right">
 
-    <!-- 阿里 -->
-    <div class="exp">
-      <div class="exp-header">
-        <span class="exp-company">阿里巴巴 · 淘宝 · 直播产品经理<span class="exp-perf">绩效 3.5</span></span>
-        <span class="exp-date">2023.04 — 2024.07</span>
+      <div class="sec-title" style="margin-top:0;">工作经历</div>
+
+      <!-- 美团 -->
+      <div class="exp">
+        <div class="exp-header">
+          <div>
+            <span class="exp-company">美团 · 酒旅事业部 · 营销产品经理</span>
+          </div>
+          <span class="exp-date">2024.07 — 至今</span>
+        </div>
+        <div class="exp-context">接手时景点营销能力几乎空白：补贴粗放、渠道分散、基建缺失。独立主导从0到1完成核心能力建设。</div>
+
+        <div class="sub-title">神券体系</div>
+        <ul>
+          <li>主导C端营销优惠体系0-1建设，聚焦大搜-货架-提单核心链路，数据下钻定位用券率瓶颈，搭建跨应用全链路发券矩阵，日均触达百万级用户</li>
+          <li>落地券后价全场景渗透，联合AI客服与风控团队优化投诉处理链路，实现客诉清零</li>
+        </ul>
+        <div class="data-line">上线半年：神券订单占大盘 20%+，增量ROI超 1.3，用券支付规模同比 +80%</div>
+
+        <div class="sub-title">营销基建</div>
+        <ul>
+          <li>2个月内从0搭建核心组件（货架/玩法/领券/导航/图文），支撑暑期大促日均20W+支付UV，完成大促页面全迁移</li>
+          <li>重构直播系统自动化流程，沉淀SOP知识库，规范上线流程，半年内实现零系统故障</li>
+          <li>现主导补贴精细化与算法化演进，推进Uplift建模与智能发券策略落地</li>
+        </ul>
       </div>
-      <div class="exp-context">接手时直播AI能力分散、商家缺乏系统化工具、赠品营销能力空白。首次主导AI产品方向，从功能执行者升级为方向判断者。</div>
 
-      <div class="sub-title">① 直播AI能力矩阵</div>
-      <ul>
-        <li>操盘数字人、AI生文、AI美工三大模块从0到1，设计产品化配置通路，降低商家使用门槛，推动AI工具规模化落地</li>
-      </ul>
-      <div class="data-line">数字人Q1落地 30+ 头部商家长期使用；AI生文使用率 50%+，留存率 30%+</div>
+      <hr class="exp-divider">
 
-      <div class="sub-title">② 直播闪赠</div>
-      <ul>
-        <li>调研10+商家，抽象加赠场景逻辑，打通交易/商详/直播/营销多产品链路，独立完成需求设计与上线</li>
-      </ul>
-      <div class="data-line">日均千万级闪赠GMV，配置留存率超 80%；99大促AB测试直播间商品点击率 +2pp</div>
-    </div>
+      <!-- 阿里 -->
+      <div class="exp">
+        <div class="exp-header">
+          <div>
+            <span class="exp-company">阿里巴巴 · 淘宝 · 直播产品经理</span>
+            <span class="exp-perf">绩效 3.5</span>
+          </div>
+          <span class="exp-date">2023.04 — 2024.07</span>
+        </div>
+        <div class="exp-context">接手时直播AI能力分散、商家缺乏系统化工具、赠品营销能力空白。首次主导AI产品方向，从功能执行者升级为方向判断者。</div>
 
-    <hr class="exp-divider">
+        <div class="sub-title">直播AI能力矩阵</div>
+        <ul>
+          <li>操盘数字人、AI生文、AI美工三大模块从0到1，设计产品化配置通路，降低商家使用门槛，推动AI工具规模化落地</li>
+        </ul>
+        <div class="data-line">数字人Q1落地 30+ 头部商家长期使用；AI生文使用率 50%+，留存率 30%+</div>
 
-    <!-- 腾讯 -->
-    <div class="exp">
-      <div class="exp-header">
-        <span class="exp-company">腾讯 · 腾讯电竞 · 直播产品经理<span class="exp-perf">绩效 5星</span></span>
-        <span class="exp-date">2021.01 — 2023.04</span>
+        <div class="sub-title">直播闪赠</div>
+        <ul>
+          <li>调研10+商家，抽象加赠场景逻辑，打通交易/商详/直播/营销多产品链路，独立完成需求设计与上线</li>
+        </ul>
+        <div class="data-line">日均千万级闪赠GMV，配置留存率超 80%；99大促AB测试直播间商品点击率 +2pp</div>
       </div>
-      <div class="exp-context">应届生入职，从执行单一模块开始，逐步承担独立产品责任，完成首次0到1产品经历。</div>
 
-      <div class="sub-title">① 手游直播（独立产品负责人）</div>
-      <ul>
-        <li>穿越火线手游：1年半内0-1操盘产品节奏，玩家渗透率超同类手游直播 5pp，观看时长超外部平台 25%+</li>
-        <li>首创"战队经理"卡牌玩法，拉动50W+用户参与，留存率30%+（高于同类玩法均值）</li>
-        <li>和平精英：搭建直播高光时刻自动化机制，减少运营人力 70%+，降低用户日反馈量 20%</li>
-      </ul>
+      <hr class="exp-divider">
 
-      <div class="sub-title">② 电竞中台SaaS系统（独立负责人）</div>
-      <ul>
-        <li>电竞联盟管理系统：服务6大职业联盟，管理100+俱乐部和1000+选手，支撑超10次转会竞拍期平稳运行</li>
-        <li>亚运赛训系统：维护3000+场集训对局数据，提升教练组分析效率 20%+</li>
-      </ul>
+      <!-- 腾讯 -->
+      <div class="exp">
+        <div class="exp-header">
+          <div>
+            <span class="exp-company">腾讯 · 腾讯电竞 · 直播产品经理</span>
+            <span class="exp-perf">绩效 5星</span>
+          </div>
+          <span class="exp-date">2021.01 — 2023.04</span>
+        </div>
+        <div class="exp-context">应届生入职，从执行单一模块开始，逐步承担独立产品责任，完成首次0到1产品经历。</div>
+
+        <div class="sub-title">手游直播（独立产品负责人）</div>
+        <ul>
+          <li>穿越火线手游：1年半内0-1操盘产品节奏，玩家渗透率超同类手游直播 5pp，观看时长超外部平台 25%+</li>
+          <li>首创"战队经理"卡牌玩法，拉动50W+用户参与，留存率30%+（高于同类玩法均值）</li>
+          <li>和平精英：搭建直播高光时刻自动化机制，减少运营人力 70%+，降低用户日反馈量 20%</li>
+        </ul>
+
+        <div class="sub-title">电竞中台SaaS系统（独立负责人）</div>
+        <ul>
+          <li>电竞联盟管理系统：服务6大职业联盟，管理100+俱乐部和1000+选手，支撑超10次转会竞拍期平稳运行</li>
+          <li>亚运赛训系统：维护3000+场集训对局数据，提升教练组分析效率 20%+</li>
+        </ul>
+      </div>
+
     </div>
-
   </div>
 </div>
 
