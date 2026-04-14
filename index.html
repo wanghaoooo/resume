@@ -9,7 +9,6 @@
 
   :root {
     --navy: #1c2b4a;
-    --navy-light: #2d4270;
     --accent: #3b6fd4;
     --bg-left: #f0f3fa;
     --border: #dde3ef;
@@ -17,8 +16,6 @@
     --muted: #718096;
     --tag-bg: #dde6f5;
   }
-
-  html { font-size: 16px; }
 
   body {
     font-family: "PingFang SC", "Helvetica Neue", "Microsoft YaHei", Arial, sans-serif;
@@ -28,7 +25,6 @@
     padding: 32px 16px;
   }
 
-  /* ── 外层卡片容器 ── */
   .card {
     max-width: 960px;
     margin: 0 auto;
@@ -38,7 +34,7 @@
     box-shadow: 0 8px 40px rgba(28,43,74,0.13);
   }
 
-  /* ══ 顶部 Header ══ */
+  /* ══ Header ══ */
   .header {
     background: var(--navy);
     padding: 36px 40px 28px;
@@ -46,262 +42,75 @@
     align-items: center;
     gap: 28px;
   }
-
-  /* 头像 */
   .avatar {
-    width: 88px;
-    height: 88px;
+    width: 88px; height: 88px;
     border-radius: 50%;
     background: linear-gradient(135deg, #3b6fd4 0%, #5a8dee 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 36px;
-    font-weight: 700;
-    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px; font-weight: 700; color: #fff;
     flex-shrink: 0;
     border: 3px solid rgba(255,255,255,0.25);
-    overflow: hidden;
-    letter-spacing: -1px;
+    overflow: hidden; letter-spacing: -1px;
   }
-  .avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-  }
-
+  .avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
   .header-info { flex: 1; }
-  .header-info h1 {
-    font-size: 2rem;
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: 2px;
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-  .header-info .role {
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.65);
-    font-weight: 400;
-    margin-bottom: 16px;
-  }
+  .header-info h1 { font-size: 2rem; font-weight: 800; color: #fff; letter-spacing: 2px; line-height: 1; margin-bottom: 6px; }
+  .header-info .role { font-size: 0.9rem; color: rgba(255,255,255,0.65); margin-bottom: 16px; }
+  .contacts { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+  .contact-item { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: rgba(255,255,255,0.8); }
+  .contact-item .icon { width: 18px; height: 18px; background: rgba(255,255,255,0.15); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
 
-  /* 联系信息 */
-  .contacts {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 20px;
-  }
-  .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.8);
-  }
-  .contact-item .icon {
-    width: 18px;
-    height: 18px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    flex-shrink: 0;
-  }
+  /* ══ Body ══ */
+  .body { display: flex; min-height: 600px; }
+  .left { width: 260px; flex-shrink: 0; background: var(--bg-left); padding: 28px 20px; border-right: 1px solid var(--border); }
+  .right { flex: 1; padding: 28px 32px; min-width: 0; }
 
-  /* ══ 主体两栏 ══ */
-  .body {
-    display: flex;
-    min-height: 600px;
-  }
-
-  /* ── 左栏 ── */
-  .left {
-    width: 260px;
-    flex-shrink: 0;
-    background: var(--bg-left);
-    padding: 28px 20px;
-    border-right: 1px solid var(--border);
-  }
-
-  /* ── 右栏 ── */
-  .right {
-    flex: 1;
-    padding: 28px 32px;
-    min-width: 0;
-  }
-
-  /* ══ 章节标题 ══ */
+  /* ══ Section Title ══ */
   .sec-title {
-    font-size: 0.65rem;
-    font-weight: 800;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--navy);
-    border-bottom: 2px solid var(--navy);
-    padding-bottom: 5px;
-    margin-bottom: 14px;
-    margin-top: 24px;
+    font-size: 0.65rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--navy); border-bottom: 2px solid var(--navy);
+    padding-bottom: 5px; margin-bottom: 14px; margin-top: 24px;
   }
   .sec-title:first-child { margin-top: 0; }
 
-  /* ══ 左栏：简介 ══ */
-  .summary-text {
-    font-size: 0.82rem;
-    line-height: 1.8;
-    color: #4a5568;
-  }
+  /* ══ Left: Summary ══ */
+  .summary-text { font-size: 0.82rem; line-height: 1.8; color: #4a5568; }
 
-  /* ══ 左栏：技能 ══ */
+  /* ══ Left: Skills ══ */
   .skill-group { margin-bottom: 12px; }
-  .skill-label {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 6px;
-  }
+  .skill-label { font-size: 0.75rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
   .skill-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-  .tag {
-    background: var(--tag-bg);
-    color: var(--navy);
-    font-size: 0.72rem;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-weight: 500;
-  }
+  .tag { background: var(--tag-bg); color: var(--navy); font-size: 0.72rem; padding: 4px 10px; border-radius: 20px; font-weight: 500; }
 
-  /* ══ 左栏：成长轨迹 ══ */
-  .growth-item {
-    margin-bottom: 12px;
-    font-size: 0.8rem;
-    color: #4a5568;
-    line-height: 1.7;
-    padding-left: 12px;
-    border-left: 3px solid var(--accent);
-  }
+  /* ══ Left: Growth ══ */
+  .growth-item { margin-bottom: 12px; font-size: 0.8rem; color: #4a5568; line-height: 1.7; padding-left: 12px; border-left: 3px solid var(--accent); }
   .growth-co { font-weight: 700; color: var(--navy); display: block; }
   .growth-arrow { color: var(--accent); font-size: 0.7rem; }
   .growth-sub { color: var(--muted); font-size: 0.75rem; }
 
-  /* ══ 左栏：教育 ══ */
+  /* ══ Left: Education ══ */
   .edu-school { font-size: 0.95rem; font-weight: 700; color: var(--navy); }
   .edu-major  { font-size: 0.8rem; color: #555; margin-top: 4px; }
   .edu-date   { font-size: 0.75rem; color: var(--muted); margin-top: 3px; }
-  .edu-badge  {
-    display: inline-block;
-    background: var(--navy); color: #fff;
-    font-size: 0.7rem; padding: 3px 10px;
-    border-radius: 20px; margin-top: 8px; font-weight: 600;
-  }
+  .edu-badge  { display: inline-block; background: var(--navy); color: #fff; font-size: 0.7rem; padding: 3px 10px; border-radius: 20px; margin-top: 8px; font-weight: 600; }
 
-  /* ══ 右栏：工作经历 ══ */
+  /* ══ Right: Experience ══ */
   .exp { margin-bottom: 20px; }
-
-  .exp-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 8px;
-    margin-bottom: 4px;
-    flex-wrap: wrap;
-  }
-  .exp-company {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--navy);
-    line-height: 1.3;
-  }
-  .exp-perf {
-    display: inline-block;
-    background: #e8f0fe;
-    color: var(--accent);
-    font-size: 0.7rem;
-    padding: 2px 8px;
-    border-radius: 20px;
-    font-weight: 600;
-    margin-left: 6px;
-    vertical-align: middle;
-  }
-  .exp-date {
-    font-size: 0.78rem;
-    color: var(--muted);
-    white-space: nowrap;
-    flex-shrink: 0;
-    padding-top: 3px;
-  }
-  .exp-context {
-    font-size: 0.78rem;
-    color: #888;
-    font-style: italic;
-    margin-bottom: 10px;
-    line-height: 1.6;
-    padding: 6px 10px;
-    background: #f8f9fc;
-    border-left: 3px solid var(--border);
-    border-radius: 0 4px 4px 0;
-  }
-
-  .sub-title {
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: #333;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .sub-title::before {
-    content: '';
-    display: inline-block;
-    width: 4px;
-    height: 14px;
-    background: var(--accent);
-    border-radius: 2px;
-    flex-shrink: 0;
-  }
-
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 4px; flex-wrap: wrap; }
+  .exp-company { font-size: 1rem; font-weight: 700; color: var(--navy); line-height: 1.3; }
+  .exp-perf { display: inline-block; background: #e8f0fe; color: var(--accent); font-size: 0.7rem; padding: 2px 8px; border-radius: 20px; font-weight: 600; margin-left: 6px; vertical-align: middle; }
+  .exp-date { font-size: 0.78rem; color: var(--muted); white-space: nowrap; flex-shrink: 0; padding-top: 3px; }
+  .exp-context { font-size: 0.78rem; color: #888; font-style: italic; margin-bottom: 10px; line-height: 1.6; padding: 6px 10px; background: #f8f9fc; border-left: 3px solid var(--border); border-radius: 0 4px 4px 0; }
+  .sub-title { font-size: 0.82rem; font-weight: 700; color: #333; margin-top: 10px; margin-bottom: 5px; display: flex; align-items: center; gap: 6px; }
+  .sub-title::before { content: ''; display: inline-block; width: 4px; height: 14px; background: var(--accent); border-radius: 2px; flex-shrink: 0; }
   ul { list-style: none; padding: 0; }
-  ul li {
-    font-size: 0.82rem;
-    color: #4a5568;
-    line-height: 1.7;
-    padding-left: 14px;
-    position: relative;
-    margin-bottom: 3px;
-  }
-  ul li::before {
-    content: "·";
-    position: absolute;
-    left: 3px;
-    color: var(--accent);
-    font-weight: 700;
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-
-  .data-line {
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin-top: 6px;
-    padding: 5px 10px;
-    background: #eef3fd;
-    border-radius: 6px;
-    line-height: 1.6;
-  }
+  ul li { font-size: 0.82rem; color: #4a5568; line-height: 1.7; padding-left: 14px; position: relative; margin-bottom: 3px; }
+  ul li::before { content: "·"; position: absolute; left: 3px; color: var(--accent); font-weight: 700; font-size: 1rem; line-height: 1.5; }
+  .data-line { font-size: 0.8rem; font-weight: 700; color: var(--navy); margin-top: 6px; padding: 5px 10px; background: #eef3fd; border-radius: 6px; line-height: 1.6; }
   .data-line::before { content: "📊 "; }
+  .exp-divider { border: none; border-top: 1px solid var(--border); margin: 18px 0; }
 
-  .exp-divider {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 18px 0;
-  }
-
-  /* ══ 响应式 ══ */
+  /* ══ Responsive ══ */
   @media (max-width: 700px) {
     body { padding: 0; }
     .card { border-radius: 0; box-shadow: none; }
@@ -311,194 +120,226 @@
     .right { padding: 20px; }
     .exp-header { flex-direction: column; gap: 2px; }
   }
-
   @media (max-width: 480px) {
     .header-info h1 { font-size: 1.6rem; }
-    .contacts { gap: 6px 14px; }
   }
 </style>
 </head>
 <body>
+<div class="card" id="resume-root"></div>
 
-<div class="card">
+<script>
+/* ================================================================
+   ✏️  只需修改这里的 RESUME_DATA，页面会自动重新渲染
+   ================================================================ */
+const RESUME_DATA = {
 
-  <!-- ══ Header ══ -->
-  <div class="header">
-    <div class="avatar" id="avatarEl">王浩</div>
-    <div class="header-info">
-      <h1>王浩</h1>
-      <div class="role">产品经理 · 5年大厂经验</div>
-      <div class="contacts">
-        <div class="contact-item">
-          <div class="icon">📱</div>
-          <span>18201386950</span>
-        </div>
-        <div class="contact-item">
-          <div class="icon">✉️</div>
-          <span>gaike25219@126.com</span>
-        </div>
-        <div class="contact-item">
-          <div class="icon">🏫</div>
-          <span>北京交通大学 · 软件工程</span>
-        </div>
-        <div class="contact-item">
-          <div class="icon">🏢</div>
-          <span>腾讯 → 阿里 → 美团</span>
-        </div>
-      </div>
-    </div>
-  </div>
+  /* ── 基本信息 ── */
+  name: "王浩",
+  role: "产品经理 · 5年大厂经验",
+  avatar: "",   // 填入图片URL或base64，留空则显示姓名首字
 
-  <!-- ══ 主体 ══ -->
-  <div class="body">
+  contacts: [
+    { icon: "📱", text: "18201386950" },
+    { icon: "✉️", text: "gaike25219@126.com" },
+    { icon: "🏫", text: "北京交通大学 · 软件工程" },
+    { icon: "🏢", text: "腾讯 → 阿里 → 美团" },
+  ],
 
-    <!-- ── 左栏 ── -->
-    <div class="left">
+  /* ── 左栏 ── */
+  summary: "近5年腾讯/阿里/美团大厂产品经验，持续在复杂业务中承担更大责任。现主导美团门票营销产品，落地神券体系与营销会场基建0-1搭建，推动营销从人工运营向算法驱动演进。软件工程背景，技术理解力与跨团队协同能力突出，具备从0到1独立操盘复杂产品的完整经验。",
 
-      <div class="sec-title">个人简介</div>
-      <div class="summary-text">
-        近5年腾讯/阿里/美团大厂产品经验，持续在复杂业务中承担更大责任。现主导美团门票营销产品，落地神券体系与营销会场基建0-1搭建，推动营销从人工运营向算法驱动演进。软件工程背景，技术理解力与跨团队协同能力突出，具备从0到1独立操盘复杂产品的完整经验。
-      </div>
+  skills: [
+    {
+      label: "产品能力",
+      tags: ["0-1产品设计", "需求分析", "数据驱动", "AB测试"],
+    },
+    {
+      label: "业务领域",
+      tags: ["营销产品", "直播产品", "AI产品", "SaaS系统"],
+    },
+    {
+      label: "技术理解",
+      tags: ["算法策略", "Uplift建模", "自动化流程"],
+    },
+  ],
 
-      <div class="sec-title">核心能力</div>
-      <div class="skill-group">
-        <div class="skill-label">产品能力</div>
-        <div class="skill-tags">
-          <span class="tag">0-1产品设计</span>
-          <span class="tag">需求分析</span>
-          <span class="tag">数据驱动</span>
-          <span class="tag">AB测试</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-label">业务领域</div>
-        <div class="skill-tags">
-          <span class="tag">营销产品</span>
-          <span class="tag">直播产品</span>
-          <span class="tag">AI产品</span>
-          <span class="tag">SaaS系统</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-label">技术理解</div>
-        <div class="skill-tags">
-          <span class="tag">算法策略</span>
-          <span class="tag">Uplift建模</span>
-          <span class="tag">自动化流程</span>
-        </div>
-      </div>
+  growth: [
+    { company: "腾讯电竞", path: "执行 → 独立负责人", sub: "完成首次0到1产品经历" },
+    { company: "阿里淘宝", path: "独立 → 方向判断",   sub: "主导直播AI能力矩阵" },
+    { company: "美团酒旅", path: "创新 → 核心主导",   sub: "推动营销精细化转型" },
+  ],
 
-      <div class="sec-title">成长轨迹</div>
-      <div class="growth-item">
-        <span class="growth-co">腾讯电竞</span>
-        执行 <span class="growth-arrow">→</span> 独立负责人<br>
-        <span class="growth-sub">完成首次0到1产品经历</span>
-      </div>
-      <div class="growth-item">
-        <span class="growth-co">阿里淘宝</span>
-        独立 <span class="growth-arrow">→</span> 方向判断<br>
-        <span class="growth-sub">主导直播AI能力矩阵</span>
-      </div>
-      <div class="growth-item">
-        <span class="growth-co">美团酒旅</span>
-        创新 <span class="growth-arrow">→</span> 核心主导<br>
-        <span class="growth-sub">推动营销精细化转型</span>
-      </div>
+  education: {
+    school: "北京交通大学",
+    major:  "软件工程（本科）",
+    date:   "2017.09 — 2021.07",
+    badge:  "211 · 双一流",
+  },
 
-      <div class="sec-title">教育背景</div>
-      <div class="edu-school">北京交通大学</div>
-      <div class="edu-major">软件工程（本科）</div>
-      <div class="edu-date">2017.09 — 2021.07</div>
-      <div><span class="edu-badge">211 · 双一流</span></div>
+  /* ── 右栏：工作经历 ── */
+  experiences: [
+    {
+      company: "美团 · 酒旅事业部 · 营销产品经理",
+      perf: "",
+      date: "2024.07 — 至今",
+      context: "接手时景点营销能力几乎空白：补贴粗放、渠道分散、基建缺失。独立主导从0到1完成核心能力建设。",
+      modules: [
+        {
+          title: "神券体系",
+          bullets: [
+            "主导C端营销优惠体系0-1建设，聚焦大搜-货架-提单核心链路，数据下钻定位用券率瓶颈，搭建跨应用全链路发券矩阵，日均触达百万级用户",
+            "落地券后价全场景渗透，联合AI客服与风控团队优化投诉处理链路，实现客诉清零",
+          ],
+          data: "上线半年：神券订单占大盘 20%+，增量ROI超 1.3，用券支付规模同比 +80%",
+        },
+        {
+          title: "营销基建",
+          bullets: [
+            "2个月内从0搭建核心组件（货架/玩法/领券/导航/图文），支撑暑期大促日均20W+支付UV，完成大促页面全迁移",
+            "重构直播系统自动化流程，沉淀SOP知识库，规范上线流程，半年内实现零系统故障",
+            "现主导补贴精细化与算法化演进，推进Uplift建模与智能发券策略落地",
+          ],
+          data: "",
+        },
+      ],
+    },
+    {
+      company: "阿里巴巴 · 淘宝 · 直播产品经理",
+      perf: "绩效 3.5",
+      date: "2023.04 — 2024.07",
+      context: "接手时直播AI能力分散、商家缺乏系统化工具、赠品营销能力空白。首次主导AI产品方向，从功能执行者升级为方向判断者。",
+      modules: [
+        {
+          title: "直播AI能力矩阵",
+          bullets: [
+            "操盘数字人、AI生文、AI美工三大模块从0到1，设计产品化配置通路，降低商家使用门槛，推动AI工具规模化落地",
+          ],
+          data: "数字人Q1落地 30+ 头部商家长期使用；AI生文使用率 50%+，留存率 30%+",
+        },
+        {
+          title: "直播闪赠",
+          bullets: [
+            "调研10+商家，抽象加赠场景逻辑，打通交易/商详/直播/营销多产品链路，独立完成需求设计与上线",
+          ],
+          data: "日均千万级闪赠GMV，配置留存率超 80%；99大促AB测试直播间商品点击率 +2pp",
+        },
+      ],
+    },
+    {
+      company: "腾讯 · 腾讯电竞 · 直播产品经理",
+      perf: "绩效 5星",
+      date: "2021.01 — 2023.04",
+      context: "应届生入职，从执行单一模块开始，逐步承担独立产品责任，完成首次0到1产品经历。",
+      modules: [
+        {
+          title: "手游直播（独立产品负责人）",
+          bullets: [
+            "穿越火线手游：1年半内0-1操盘产品节奏，玩家渗透率超同类手游直播 5pp，观看时长超外部平台 25%+",
+            "首创"战队经理"卡牌玩法，拉动50W+用户参与，留存率30%+（高于同类玩法均值）",
+            "和平精英：搭建直播高光时刻自动化机制，减少运营人力 70%+，降低用户日反馈量 20%",
+          ],
+          data: "",
+        },
+        {
+          title: "电竞中台SaaS系统（独立负责人）",
+          bullets: [
+            "电竞联盟管理系统：服务6大职业联盟，管理100+俱乐部和1000+选手，支撑超10次转会竞拍期平稳运行",
+            "亚运赛训系统：维护3000+场集训对局数据，提升教练组分析效率 20%+",
+          ],
+          data: "",
+        },
+      ],
+    },
+  ],
+};
 
-    </div>
+/* ================================================================
+   🔧  渲染引擎（不需要修改）
+   ================================================================ */
+function render(data) {
+  const root = document.getElementById("resume-root");
 
-    <!-- ── 右栏 ── -->
-    <div class="right">
+  // 头像
+  const avatarContent = data.avatar
+    ? `<img src="${data.avatar}" alt="${data.name}">`
+    : data.name;
 
-      <div class="sec-title" style="margin-top:0;">工作经历</div>
+  // 联系信息
+  const contactsHTML = data.contacts.map(c =>
+    `<div class="contact-item"><div class="icon">${c.icon}</div><span>${c.text}</span></div>`
+  ).join("");
 
-      <!-- 美团 -->
+  // 技能
+  const skillsHTML = data.skills.map(g =>
+    `<div class="skill-group">
+      <div class="skill-label">${g.label}</div>
+      <div class="skill-tags">${g.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
+    </div>`
+  ).join("");
+
+  // 成长轨迹
+  const growthHTML = data.growth.map(g =>
+    `<div class="growth-item">
+      <span class="growth-co">${g.company}</span>
+      ${g.path.replace("→", `<span class="growth-arrow">→</span>`)}<br>
+      <span class="growth-sub">${g.sub}</span>
+    </div>`
+  ).join("");
+
+  // 工作经历
+  const expHTML = data.experiences.map((exp, i) => {
+    const modulesHTML = exp.modules.map(m => {
+      const bulletsHTML = m.bullets.map(b => `<li>${b}</li>`).join("");
+      const dataHTML = m.data ? `<div class="data-line">${m.data}</div>` : "";
+      return `<div class="sub-title">${m.title}</div><ul>${bulletsHTML}</ul>${dataHTML}`;
+    }).join("");
+
+    const perfHTML = exp.perf ? `<span class="exp-perf">${exp.perf}</span>` : "";
+    const divider = i < data.experiences.length - 1 ? `<hr class="exp-divider">` : "";
+
+    return `
       <div class="exp">
         <div class="exp-header">
-          <div>
-            <span class="exp-company">美团 · 酒旅事业部 · 营销产品经理</span>
-          </div>
-          <span class="exp-date">2024.07 — 至今</span>
+          <div><span class="exp-company">${exp.company}</span>${perfHTML}</div>
+          <span class="exp-date">${exp.date}</span>
         </div>
-        <div class="exp-context">接手时景点营销能力几乎空白：补贴粗放、渠道分散、基建缺失。独立主导从0到1完成核心能力建设。</div>
+        <div class="exp-context">${exp.context}</div>
+        ${modulesHTML}
+      </div>${divider}`;
+  }).join("");
 
-        <div class="sub-title">神券体系</div>
-        <ul>
-          <li>主导C端营销优惠体系0-1建设，聚焦大搜-货架-提单核心链路，数据下钻定位用券率瓶颈，搭建跨应用全链路发券矩阵，日均触达百万级用户</li>
-          <li>落地券后价全场景渗透，联合AI客服与风控团队优化投诉处理链路，实现客诉清零</li>
-        </ul>
-        <div class="data-line">上线半年：神券订单占大盘 20%+，增量ROI超 1.3，用券支付规模同比 +80%</div>
-
-        <div class="sub-title">营销基建</div>
-        <ul>
-          <li>2个月内从0搭建核心组件（货架/玩法/领券/导航/图文），支撑暑期大促日均20W+支付UV，完成大促页面全迁移</li>
-          <li>重构直播系统自动化流程，沉淀SOP知识库，规范上线流程，半年内实现零系统故障</li>
-          <li>现主导补贴精细化与算法化演进，推进Uplift建模与智能发券策略落地</li>
-        </ul>
+  root.innerHTML = `
+    <div class="header">
+      <div class="avatar">${avatarContent}</div>
+      <div class="header-info">
+        <h1>${data.name}</h1>
+        <div class="role">${data.role}</div>
+        <div class="contacts">${contactsHTML}</div>
       </div>
-
-      <hr class="exp-divider">
-
-      <!-- 阿里 -->
-      <div class="exp">
-        <div class="exp-header">
-          <div>
-            <span class="exp-company">阿里巴巴 · 淘宝 · 直播产品经理</span>
-            <span class="exp-perf">绩效 3.5</span>
-          </div>
-          <span class="exp-date">2023.04 — 2024.07</span>
-        </div>
-        <div class="exp-context">接手时直播AI能力分散、商家缺乏系统化工具、赠品营销能力空白。首次主导AI产品方向，从功能执行者升级为方向判断者。</div>
-
-        <div class="sub-title">直播AI能力矩阵</div>
-        <ul>
-          <li>操盘数字人、AI生文、AI美工三大模块从0到1，设计产品化配置通路，降低商家使用门槛，推动AI工具规模化落地</li>
-        </ul>
-        <div class="data-line">数字人Q1落地 30+ 头部商家长期使用；AI生文使用率 50%+，留存率 30%+</div>
-
-        <div class="sub-title">直播闪赠</div>
-        <ul>
-          <li>调研10+商家，抽象加赠场景逻辑，打通交易/商详/直播/营销多产品链路，独立完成需求设计与上线</li>
-        </ul>
-        <div class="data-line">日均千万级闪赠GMV，配置留存率超 80%；99大促AB测试直播间商品点击率 +2pp</div>
-      </div>
-
-      <hr class="exp-divider">
-
-      <!-- 腾讯 -->
-      <div class="exp">
-        <div class="exp-header">
-          <div>
-            <span class="exp-company">腾讯 · 腾讯电竞 · 直播产品经理</span>
-            <span class="exp-perf">绩效 5星</span>
-          </div>
-          <span class="exp-date">2021.01 — 2023.04</span>
-        </div>
-        <div class="exp-context">应届生入职，从执行单一模块开始，逐步承担独立产品责任，完成首次0到1产品经历。</div>
-
-        <div class="sub-title">手游直播（独立产品负责人）</div>
-        <ul>
-          <li>穿越火线手游：1年半内0-1操盘产品节奏，玩家渗透率超同类手游直播 5pp，观看时长超外部平台 25%+</li>
-          <li>首创"战队经理"卡牌玩法，拉动50W+用户参与，留存率30%+（高于同类玩法均值）</li>
-          <li>和平精英：搭建直播高光时刻自动化机制，减少运营人力 70%+，降低用户日反馈量 20%</li>
-        </ul>
-
-        <div class="sub-title">电竞中台SaaS系统（独立负责人）</div>
-        <ul>
-          <li>电竞联盟管理系统：服务6大职业联盟，管理100+俱乐部和1000+选手，支撑超10次转会竞拍期平稳运行</li>
-          <li>亚运赛训系统：维护3000+场集训对局数据，提升教练组分析效率 20%+</li>
-        </ul>
-      </div>
-
     </div>
-  </div>
-</div>
+    <div class="body">
+      <div class="left">
+        <div class="sec-title">个人简介</div>
+        <div class="summary-text">${data.summary}</div>
+        <div class="sec-title">核心能力</div>
+        ${skillsHTML}
+        <div class="sec-title">成长轨迹</div>
+        ${growthHTML}
+        <div class="sec-title">教育背景</div>
+        <div class="edu-school">${data.education.school}</div>
+        <div class="edu-major">${data.education.major}</div>
+        <div class="edu-date">${data.education.date}</div>
+        <div><span class="edu-badge">${data.education.badge}</span></div>
+      </div>
+      <div class="right">
+        <div class="sec-title" style="margin-top:0;">工作经历</div>
+        ${expHTML}
+      </div>
+    </div>`;
+}
 
+render(RESUME_DATA);
+</script>
 </body>
 </html>
