@@ -1,330 +1,269 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>王浩 · 产品经理简历</title>
-<style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>王浩 · 产品经理简历</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --navy: #1c2b4a;
+      --navy-light: #2d4270;
+      --accent: #3b6fd4;
+      --accent-light: #5a8dee;
+      --bg-left: #f0f3fa;
+      --border: #dde3ef;
+      --text: #2d3748;
+      --muted: #718096;
+      --tag-bg: #dde6f5;
+      --green: #38a169;
+      --green-bg: #f0fff4;
+    }
+    html { font-size: 16px; }
+    body {
+      font-family: "PingFang SC", "Helvetica Neue", "Microsoft YaHei", Arial, sans-serif;
+      background: #e8ecf4;
+      color: var(--text);
+      min-height: 100vh;
+      padding: 32px 16px;
+    }
 
-  :root {
-    --navy: #1c2b4a;
-    --navy-light: #2d4270;
-    --accent: #3b6fd4;
-    --bg-left: #f0f3fa;
-    --border: #dde3ef;
-    --text: #2d3748;
-    --muted: #718096;
-    --tag-bg: #dde6f5;
-  }
+    /* ── 外层卡片 ── */
+    .card {
+      max-width: 980px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 48px rgba(28,43,74,0.14);
+    }
 
-  html { font-size: 16px; }
+    /* ══ Header ══ */
+    .header {
+      background: linear-gradient(135deg, #1c2b4a 0%, #2d4270 60%, #3b5fa0 100%);
+      padding: 40px 44px 32px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::after {
+      content: '';
+      position: absolute;
+      right: -60px; top: -60px;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      pointer-events: none;
+    }
+    .avatar {
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #3b6fd4 0%, #5a8dee 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px; font-weight: 800; color: #fff;
+      flex-shrink: 0;
+      border: 3px solid rgba(255,255,255,0.3);
+      letter-spacing: -1px;
+    }
+    .header-info { flex: 1; }
+    .header-info h1 {
+      font-size: 2.1rem; font-weight: 800; color: #fff;
+      letter-spacing: 3px; line-height: 1; margin-bottom: 6px;
+    }
+    .header-info .role {
+      font-size: 0.88rem; color: rgba(255,255,255,0.6);
+      font-weight: 400; margin-bottom: 18px;
+    }
+    .contacts { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+    .contact-item {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 0.8rem; color: rgba(255,255,255,0.82);
+    }
+    .contact-item .icon {
+      width: 20px; height: 20px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; flex-shrink: 0;
+    }
 
-  body {
-    font-family: "PingFang SC", "Helvetica Neue", "Microsoft YaHei", Arial, sans-serif;
-    background: #e8ecf4;
-    color: var(--text);
-    min-height: 100vh;
-    padding: 32px 16px;
-  }
+    /* ══ 主体两栏 ══ */
+    .body { display: flex; min-height: 600px; }
 
-  /* ── 外层卡片容器 ── */
-  .card {
-    max-width: 960px;
-    margin: 0 auto;
-    background: #fff;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 8px 40px rgba(28,43,74,0.13);
-  }
+    /* ── 左栏 ── */
+    .left {
+      width: 256px; flex-shrink: 0;
+      background: var(--bg-left);
+      padding: 28px 22px;
+      border-right: 1px solid var(--border);
+    }
 
-  /* ══ 顶部 Header ══ */
-  .header {
-    background: var(--navy);
-    padding: 36px 40px 28px;
-    display: flex;
-    align-items: center;
-    gap: 28px;
-  }
+    /* ── 右栏 ── */
+    .right { flex: 1; padding: 28px 36px; min-width: 0; }
 
-  /* 头像 */
-  .avatar {
-    width: 88px;
-    height: 88px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #3b6fd4 0%, #5a8dee 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 36px;
-    font-weight: 700;
-    color: #fff;
-    flex-shrink: 0;
-    border: 3px solid rgba(255,255,255,0.25);
-    overflow: hidden;
-    letter-spacing: -1px;
-  }
-  .avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-  }
+    /* ══ 章节标题 ══ */
+    .sec-title {
+      font-size: 0.63rem; font-weight: 800;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--navy);
+      border-bottom: 2px solid var(--navy);
+      padding-bottom: 5px;
+      margin-bottom: 14px; margin-top: 26px;
+    }
+    .sec-title:first-child { margin-top: 0; }
 
-  .header-info { flex: 1; }
-  .header-info h1 {
-    font-size: 2rem;
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: 2px;
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-  .header-info .role {
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.65);
-    font-weight: 400;
-    margin-bottom: 16px;
-  }
+    /* ══ 左栏：简介 ══ */
+    .summary-text {
+      font-size: 0.82rem; line-height: 1.85; color: #4a5568;
+    }
 
-  /* 联系信息 */
-  .contacts {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 20px;
-  }
-  .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.8);
-  }
-  .contact-item .icon {
-    width: 18px;
-    height: 18px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    flex-shrink: 0;
-  }
+    /* ══ 左栏：技能 ══ */
+    .skill-group { margin-bottom: 13px; }
+    .skill-label {
+      font-size: 0.73rem; font-weight: 700;
+      color: var(--navy); margin-bottom: 6px;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .tag {
+      background: var(--tag-bg); color: var(--navy);
+      font-size: 0.71rem; padding: 4px 10px;
+      border-radius: 20px; font-weight: 500;
+    }
 
-  /* ══ 主体两栏 ══ */
-  .body {
-    display: flex;
-    min-height: 600px;
-  }
+    /* ══ 左栏：成长轨迹 ══ */
+    .growth-item {
+      margin-bottom: 13px; font-size: 0.8rem;
+      color: #4a5568; line-height: 1.7;
+      padding-left: 12px;
+      border-left: 3px solid var(--accent);
+    }
+    .growth-co { font-weight: 700; color: var(--navy); display: block; }
+    .growth-arrow { color: var(--accent); font-size: 0.7rem; }
+    .growth-sub { color: var(--muted); font-size: 0.74rem; }
 
-  /* ── 左栏 ── */
-  .left {
-    width: 260px;
-    flex-shrink: 0;
-    background: var(--bg-left);
-    padding: 28px 20px;
-    border-right: 1px solid var(--border);
-  }
+    /* ══ 左栏：教育 ══ */
+    .edu-school { font-size: 0.95rem; font-weight: 700; color: var(--navy); }
+    .edu-major { font-size: 0.8rem; color: #555; margin-top: 4px; }
+    .edu-date { font-size: 0.74rem; color: var(--muted); margin-top: 3px; }
+    .edu-badge {
+      display: inline-block; background: var(--navy); color: #fff;
+      font-size: 0.7rem; padding: 3px 10px;
+      border-radius: 20px; margin-top: 8px; font-weight: 600;
+    }
 
-  /* ── 右栏 ── */
-  .right {
-    flex: 1;
-    padding: 28px 32px;
-    min-width: 0;
-  }
+    /* ══ 右栏：工作经历 ══ */
+    .exp { margin-bottom: 22px; }
+    .exp-header {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; gap: 8px;
+      margin-bottom: 6px; flex-wrap: wrap;
+    }
+    .exp-company {
+      font-size: 1rem; font-weight: 700;
+      color: var(--navy); line-height: 1.3;
+    }
+    .exp-date {
+      font-size: 0.77rem; color: var(--muted);
+      white-space: nowrap; flex-shrink: 0; padding-top: 3px;
+    }
+    .exp-context {
+      font-size: 0.78rem; color: #777;
+      font-style: italic; margin-bottom: 12px;
+      line-height: 1.65; padding: 7px 12px;
+      background: #f8f9fc;
+      border-left: 3px solid var(--border);
+      border-radius: 0 5px 5px 0;
+    }
 
-  /* ══ 章节标题 ══ */
-  .sec-title {
-    font-size: 0.65rem;
-    font-weight: 800;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--navy);
-    border-bottom: 2px solid var(--navy);
-    padding-bottom: 5px;
-    margin-bottom: 14px;
-    margin-top: 24px;
-  }
-  .sec-title:first-child { margin-top: 0; }
+    /* 子模块标题 */
+    .sub-title {
+      font-size: 0.82rem; font-weight: 700; color: #2d3748;
+      margin-top: 12px; margin-bottom: 6px;
+      display: flex; align-items: center; gap: 7px;
+    }
+    .sub-title::before {
+      content: '';
+      display: inline-block; width: 4px; height: 14px;
+      background: var(--accent); border-radius: 2px; flex-shrink: 0;
+    }
 
-  /* ══ 左栏：简介 ══ */
-  .summary-text {
-    font-size: 0.82rem;
-    line-height: 1.8;
-    color: #4a5568;
-  }
+    /* 列表 */
+    ul { list-style: none; padding: 0; }
+    ul li {
+      font-size: 0.82rem; color: #4a5568;
+      line-height: 1.75; padding-left: 14px;
+      position: relative; margin-bottom: 3px;
+    }
+    ul li::before {
+      content: "·"; position: absolute; left: 3px;
+      color: var(--accent); font-weight: 700;
+      font-size: 1rem; line-height: 1.5;
+    }
 
-  /* ══ 左栏：技能 ══ */
-  .skill-group { margin-bottom: 12px; }
-  .skill-label {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 6px;
-  }
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-  .tag {
-    background: var(--tag-bg);
-    color: var(--navy);
-    font-size: 0.72rem;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-weight: 500;
-  }
+    /* 数据高亮行 */
+    .data-line {
+      font-size: 0.79rem; font-weight: 600;
+      color: #1a4a2e;
+      margin-top: 7px; padding: 6px 12px;
+      background: var(--green-bg);
+      border-left: 3px solid var(--green);
+      border-radius: 0 6px 6px 0;
+      line-height: 1.65;
+    }
 
-  /* ══ 左栏：成长轨迹 ══ */
-  .growth-item {
-    margin-bottom: 12px;
-    font-size: 0.8rem;
-    color: #4a5568;
-    line-height: 1.7;
-    padding-left: 12px;
-    border-left: 3px solid var(--accent);
-  }
-  .growth-co { font-weight: 700; color: var(--navy); display: block; }
-  .growth-arrow { color: var(--accent); font-size: 0.7rem; }
-  .growth-sub { color: var(--muted); font-size: 0.75rem; }
+    /* 数据指标卡片组 */
+    .metrics {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      margin-top: 8px; margin-bottom: 4px;
+    }
+    .metric-card {
+      background: #eef3fd;
+      border: 1px solid #c8d8f8;
+      border-radius: 8px;
+      padding: 7px 14px;
+      text-align: center;
+      flex: 1; min-width: 90px;
+    }
+    .metric-num {
+      font-size: 1.1rem; font-weight: 800;
+      color: var(--accent); line-height: 1.2;
+    }
+    .metric-label {
+      font-size: 0.68rem; color: var(--muted);
+      margin-top: 2px; line-height: 1.3;
+    }
 
-  /* ══ 左栏：教育 ══ */
-  .edu-school { font-size: 0.95rem; font-weight: 700; color: var(--navy); }
-  .edu-major  { font-size: 0.8rem; color: #555; margin-top: 4px; }
-  .edu-date   { font-size: 0.75rem; color: var(--muted); margin-top: 3px; }
-  .edu-badge  {
-    display: inline-block;
-    background: var(--navy); color: #fff;
-    font-size: 0.7rem; padding: 3px 10px;
-    border-radius: 20px; margin-top: 8px; font-weight: 600;
-  }
+    .exp-divider {
+      border: none; border-top: 1px solid var(--border);
+      margin: 20px 0;
+    }
 
-  /* ══ 右栏：工作经历 ══ */
-  .exp { margin-bottom: 20px; }
-
-  .exp-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 8px;
-    margin-bottom: 4px;
-    flex-wrap: wrap;
-  }
-  .exp-company {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--navy);
-    line-height: 1.3;
-  }
-  .exp-perf {
-    display: inline-block;
-    background: #e8f0fe;
-    color: var(--accent);
-    font-size: 0.7rem;
-    padding: 2px 8px;
-    border-radius: 20px;
-    font-weight: 600;
-    margin-left: 6px;
-    vertical-align: middle;
-  }
-  .exp-date {
-    font-size: 0.78rem;
-    color: var(--muted);
-    white-space: nowrap;
-    flex-shrink: 0;
-    padding-top: 3px;
-  }
-  .exp-context {
-    font-size: 0.78rem;
-    color: #888;
-    font-style: italic;
-    margin-bottom: 10px;
-    line-height: 1.6;
-    padding: 6px 10px;
-    background: #f8f9fc;
-    border-left: 3px solid var(--border);
-    border-radius: 0 4px 4px 0;
-  }
-
-  .sub-title {
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: #333;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .sub-title::before {
-    content: '';
-    display: inline-block;
-    width: 4px;
-    height: 14px;
-    background: var(--accent);
-    border-radius: 2px;
-    flex-shrink: 0;
-  }
-
-  ul { list-style: none; padding: 0; }
-  ul li {
-    font-size: 0.82rem;
-    color: #4a5568;
-    line-height: 1.7;
-    padding-left: 14px;
-    position: relative;
-    margin-bottom: 3px;
-  }
-  ul li::before {
-    content: "·";
-    position: absolute;
-    left: 3px;
-    color: var(--accent);
-    font-weight: 700;
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-
-  .data-line {
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin-top: 6px;
-    padding: 5px 10px;
-    background: #eef3fd;
-    border-radius: 6px;
-    line-height: 1.6;
-  }
-  .data-line::before { content: "📊 "; }
-
-  .exp-divider {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 18px 0;
-  }
-
-  /* ══ 响应式 ══ */
-  @media (max-width: 700px) {
-    body { padding: 0; }
-    .card { border-radius: 0; box-shadow: none; }
-    .header { padding: 24px 20px; flex-direction: column; align-items: flex-start; gap: 16px; }
-    .body { flex-direction: column; }
-    .left { width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
-    .right { padding: 20px; }
-    .exp-header { flex-direction: column; gap: 2px; }
-  }
-
-  @media (max-width: 480px) {
-    .header-info h1 { font-size: 1.6rem; }
-    .contacts { gap: 6px 14px; }
-  }
-</style>
+    /* ══ 响应式 ══ */
+    @media (max-width: 720px) {
+      body { padding: 0; }
+      .card { border-radius: 0; box-shadow: none; }
+      .header { padding: 24px 20px; flex-direction: column; align-items: flex-start; gap: 16px; }
+      .body { flex-direction: column; }
+      .left { width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
+      .right { padding: 20px; }
+      .exp-header { flex-direction: column; gap: 2px; }
+      .metrics { gap: 6px; }
+    }
+    @media (max-width: 480px) {
+      .header-info h1 { font-size: 1.6rem; }
+      .contacts { gap: 6px 14px; }
+      .metric-card { min-width: 70px; }
+    }
+  </style>
 </head>
 <body>
-
 <div class="card">
 
   <!-- ══ Header ══ -->
   <div class="header">
-    <div class="avatar" id="avatarEl">王浩</div>
+    <div class="avatar">王浩</div>
     <div class="header-info">
       <h1>王浩</h1>
       <div class="role">产品经理 · 5年大厂经验</div>
@@ -357,7 +296,8 @@
 
       <div class="sec-title">个人简介</div>
       <div class="summary-text">
-        近5年腾讯/阿里/美团大厂产品经验，持续在复杂业务中承担更大责任。现主导美团门票营销产品，落地神券体系与营销会场基建0-1搭建，推动营销从人工运营向算法驱动演进。软件工程背景，技术理解力与跨团队协同能力突出，具备从0到1独立操盘复杂产品的完整经验。
+        软件工程背景，具备 AI 产品技术理解力，擅长 0-1 搭建、业务攻坚、模糊需求落地。<br><br>
+        5 年产品经验（腾讯、阿里、美团），持续承接高复杂度业务，沟通能力与抗压能力突出，可独立操盘核心业务模块。
       </div>
 
       <div class="sec-title">核心能力</div>
@@ -415,31 +355,45 @@
 
     <!-- ── 右栏 ── -->
     <div class="right">
-
       <div class="sec-title" style="margin-top:0;">工作经历</div>
 
       <!-- 美团 -->
       <div class="exp">
         <div class="exp-header">
-          <div>
-            <span class="exp-company">美团 · 酒旅事业部 · 营销产品经理</span>
-          </div>
+          <span class="exp-company">美团 · 酒旅事业部 · 营销产品经理</span>
           <span class="exp-date">2024.07 — 至今</span>
         </div>
-        <div class="exp-context">接手时景点营销能力几乎空白：补贴粗放、渠道分散、基建缺失。独立主导从0到1完成核心能力建设。</div>
+        <div class="exp-context">核心挑战：景点营销基建空白、补贴粗放 ROI 低、配置流程复杂，需依托平台资源放大业务营销能力。</div>
 
-        <div class="sub-title">神券体系</div>
+        <div class="sub-title">业务增长</div>
         <ul>
-          <li>主导C端营销优惠体系0-1建设，聚焦大搜-货架-提单核心链路，数据下钻定位用券率瓶颈，搭建跨应用全链路发券矩阵，日均触达百万级用户</li>
-          <li>落地券后价全场景渗透，联合AI客服与风控团队优化投诉处理链路，实现客诉清零</li>
+          <li>借助神券，主导景点业务 C 端优惠体系 0-1 建设，上线半年神券订单占大盘超 20%，增量 ROI 超 1.3，成为景点业务有史以来效果最好、覆盖最广的营销能力，用券支付规模年同比增长 80%。</li>
+          <li>搭建业务内跨应用全链路发券矩阵，日均触达百万级用户，做到应覆盖尽覆盖，同时提高用户优惠感知，累计提高访购率 +5%。</li>
         </ul>
-        <div class="data-line">上线半年：神券订单占大盘 20%+，增量ROI超 1.3，用券支付规模同比 +80%</div>
+        <div class="metrics">
+          <div class="metric-card">
+            <div class="metric-num">20%+</div>
+            <div class="metric-label">神券订单占大盘</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-num">ROI 1.3+</div>
+            <div class="metric-label">增量投入产出比</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-num">+80%</div>
+            <div class="metric-label">用券支付规模同比</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-num">+5%</div>
+            <div class="metric-label">访购率提升</div>
+          </div>
+        </div>
 
-        <div class="sub-title">营销基建</div>
+        <div class="sub-title">效率优化</div>
         <ul>
-          <li>2个月内从0搭建核心组件（货架/玩法/领券/导航/图文），支撑暑期大促日均20W+支付UV，完成大促页面全迁移</li>
-          <li>重构直播系统自动化流程，沉淀SOP知识库，规范上线流程，半年内实现零系统故障</li>
-          <li>现主导补贴精细化与算法化演进，推进Uplift建模与智能发券策略落地</li>
+          <li>配置自动化：通过历史 SOP 沉淀搭建 skill 能力，提高 10+ 运营人员配置效率。</li>
+          <li>答疑自动化：针对商家机器人接入神券答疑能力，个性化解答常见问题，解决日常 70% 客诉问题。</li>
+          <li>2 个月内从 0 搭建核心营销会场组件（货架/玩法/领券/导航/图文），支撑暑期大促日均 20W+ 支付 UV。</li>
         </ul>
       </div>
 
@@ -448,25 +402,23 @@
       <!-- 阿里 -->
       <div class="exp">
         <div class="exp-header">
-          <div>
-            <span class="exp-company">阿里巴巴 · 淘宝 · 直播产品经理</span>
-            <span class="exp-perf">绩效 3.5</span>
-          </div>
+          <span class="exp-company">阿里巴巴 · 淘宝 · 直播产品经理</span>
           <span class="exp-date">2023.04 — 2024.07</span>
         </div>
-        <div class="exp-context">接手时直播AI能力分散、商家缺乏系统化工具、赠品营销能力空白。首次主导AI产品方向，从功能执行者升级为方向判断者。</div>
+        <div class="exp-context">核心挑战：直播 AI 能力薄弱、商家工具缺失、赠品营销能力空白，完成从功能执行到方向判断的升级。</div>
 
-        <div class="sub-title">直播AI能力矩阵</div>
+        <div class="sub-title">直播 AI 能力矩阵</div>
         <ul>
-          <li>操盘数字人、AI生文、AI美工三大模块从0到1，设计产品化配置通路，降低商家使用门槛，推动AI工具规模化落地</li>
+          <li>自研数字人策划，调研竞对能力，配合算法迭代（声音&形象克隆），搭建产品化配置链路（文案配置&形象配置），规划高阶能力（实时互动、特写镜头），Q1 实现 30+ 头部商家长期使用，日均 30w+ GMV。</li>
+          <li>AI 生文：针对直播场景，在播前播中播后搭建直播讲解脚本能力，规范文本结构和信息元素，配合算法搭建文本评估体系，功能使用率 50%+，留存率 30%+。</li>
         </ul>
-        <div class="data-line">数字人Q1落地 30+ 头部商家长期使用；AI生文使用率 50%+，留存率 30%+</div>
+        <div class="data-line">数字人 Q1 落地 30+ 头部商家长期使用，日均 30w+ GMV；AI 生文使用率 50%+，留存率 30%+</div>
 
         <div class="sub-title">直播闪赠</div>
         <ul>
-          <li>调研10+商家，抽象加赠场景逻辑，打通交易/商详/直播/营销多产品链路，独立完成需求设计与上线</li>
+          <li>调研 10+ 美妆商家，抽象加赠场景逻辑，打通交易、商详、直播、营销多产品链路，独立完成需求设计与上线推广。</li>
         </ul>
-        <div class="data-line">日均千万级闪赠GMV，配置留存率超 80%；99大促AB测试直播间商品点击率 +2pp</div>
+        <div class="data-line">日均千万级闪赠 GMV，配置留存率超 80%；AB 测试商品点击率 +2pp</div>
       </div>
 
       <hr class="exp-divider">
@@ -474,31 +426,26 @@
       <!-- 腾讯 -->
       <div class="exp">
         <div class="exp-header">
-          <div>
-            <span class="exp-company">腾讯 · 腾讯电竞 · 直播产品经理</span>
-            <span class="exp-perf">绩效 5星</span>
-          </div>
+          <span class="exp-company">腾讯 · 腾讯电竞 · 直播产品经理</span>
           <span class="exp-date">2021.01 — 2023.04</span>
         </div>
-        <div class="exp-context">应届生入职，从执行单一模块开始，逐步承担独立产品责任，完成首次0到1产品经历。</div>
+        <div class="exp-context">核心挑战：搭建高复用性电竞中台基建，支撑多游戏业务目标。</div>
 
-        <div class="sub-title">手游直播（独立产品负责人）</div>
+        <div class="sub-title">游戏内直播 SDK</div>
         <ul>
-          <li>穿越火线手游：1年半内0-1操盘产品节奏，玩家渗透率超同类手游直播 5pp，观看时长超外部平台 25%+</li>
-          <li>首创"战队经理"卡牌玩法，拉动50W+用户参与，留存率30%+（高于同类玩法均值）</li>
-          <li>和平精英：搭建直播高光时刻自动化机制，减少运营人力 70%+，降低用户日反馈量 20%</li>
+          <li>和平精英内直播：拆解接手时业务目标搭建精细化运营能力，打造用户标签及个性化推荐能力，推动用户观看直播留存率提升 1pp。</li>
+          <li>穿越火线手游内直播：基于和平精英的经验，从 0 到 1 规划产品节奏与能力，联动游戏内打造引流能力，玩家渗透率超其他手游直播 5pp；落地时长宝箱等运营玩法，观看时长超外部直播平台 25%+；首创"战队经理"模式卡牌玩法，拉动 50w+ 用户参与，留存率 30%+，超同类玩法。</li>
         </ul>
 
-        <div class="sub-title">电竞中台SaaS系统（独立负责人）</div>
+        <div class="sub-title">中台 SaaS 化能力</div>
         <ul>
-          <li>电竞联盟管理系统：服务6大职业联盟，管理100+俱乐部和1000+选手，支撑超10次转会竞拍期平稳运行</li>
-          <li>亚运赛训系统：维护3000+场集训对局数据，提升教练组分析效率 20%+</li>
+          <li>搭建联盟管理系统，服务 6 个职业联盟（基本覆盖司内职业联赛），管理 100+ 俱乐部和 1000+ 选手，主要服务 10+ 次转会竞拍期平稳运行。</li>
+          <li>打造首个亚运国家队赛训系统，维护 3000+ 场集训对局拉取与分析，提升教练组分析效率 20%+。</li>
         </ul>
       </div>
 
     </div>
   </div>
 </div>
-
 </body>
 </html>
